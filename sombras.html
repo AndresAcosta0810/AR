@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <title>Ejemplo básico de A-Frame</title>
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9hdWxhdmlydHVhbC51di5lcy9wbHVnaW5maWxlLnBocC8zMTUzOTMzL21vZF9yZXNvdXJjZS9jb250ZW50LzAvYWZyYW1lLWxpZ2h0U2hhZG93Lmh0bWw">
+    <meta aframe-injected="" name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta aframe-injected="" name="mobile-web-app-capable" content="yes">
+    <meta aframe-injected="" name="theme-color" content="black">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.1/dist/mindar-image-aframe.prod.js"></script>
+</head>
+<script>
+    AFRAME.registerComponent('shadowonly', {
+        init: function () {
+            // Create shadow material
+            const material = new THREE.ShadowMaterial({
+                opacity: 0.5,
+            });
+
+            // Apply material to object and all children
+            this.el.object3D.traverse((obj) => {
+                obj.material = material;
+            });
+        }
+    });
+</script>
+
+<body>
+    <a-scene inspector="" 
+    keyboard-shortcuts="" 
+    screenshot="" 
+    mindar-image="imageTargetSrc: targets.mind;"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+
+        
+
+        <a-assets>
+            <a-asset-item id="box" src="./BOX/cardboard_box_01_4k.gltf"></a-asset-item>
+            <a-asset-item id="tv" src="./TV/Television_01_4k.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-camera fov="100" camera="" rotation="-26.24146701699171 1.2605071492877964 0" look-controls=""
+            wasd-controls="" data-aframe-inspector-original-camera=""></a-camera>
+        
+        <!-- GEOMETRÍA CAJAS -->
+
+        <!-- <a-box shadow="" position="-1.6 0.1 -1" scale="0.2 0.2 0.2" rotation="0 36 0" material="" geometry="">
+        </a-box> -->
+        <a-entity mindar-image-target="targetIndex: 0">
+        
+        <a-entity shadow="" gltf-model="#box" position="0 0.1 -2.5" material="" geometry=""></a-entity>
+
+        <a-entity shadow="" gltf-model="#tv" position="-1 0.1 -2.5" material="" geometry=""></a-entity>
+
+    
+        <!-- LUCES -->
+
+        <a-entity id="luz_amarilla" position="-1.8 3 -2.5" rotation="-37 -20 0"
+            light="type: spot; castShadow: true; intensity: 0.7; color: yellow">
+        </a-entity>
+
+        <a-entity id="luz_blanca" position="1 2 1" light="intensity: 0.9; color: white">
+        </a-entity>
+
+        <a-entity id="luz_ambiente" light="type: ambient; intensity: 0.2">
+        </a-entity>
+
+        <!-- PLANOS SOMBRAS -->
+
+        <a-plane id="suelo" shadow="cast: false" shadowonly="" material="color: white; opacity: 0.5" scale="3.5 3 3"
+            position="-1.25 0 -2" rotation="-90 10 0" geometry="">
+        </a-plane>
+
+        <a-plane id="pared" shadow="cast: false" shadowonly="" material="color: white; opacity: 0.5" scale="3 3 3"
+            position="-1.74 1.5 -3.457" rotation="0 10 0" geometry="">
+        </a-plane>
+    </a-entity>
+        <div class="a-loader-title" style="display: none;">Ejemplo básico de A-Frame</div>
+    </a-scene>
+</body>
+
+</html>
