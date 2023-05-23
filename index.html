@@ -45,7 +45,7 @@
         init: function () {
             // Create shadow material
             const material = new THREE.ShadowMaterial({
-                opacity: 0.5,
+                opacity: 0.8,
             });
 
             // Apply material to object and all children
@@ -64,46 +64,40 @@
         device-orientation-permission-ui="enabled: false">
 
         <a-assets>
-            <a-asset-item id="box" src="./BOX/cardboard_box_01_4k.gltf"></a-asset-item>
-            <a-asset-item id="tv" src="./TV/Television_01_4k.gltf"></a-asset-item>
+            <a-asset-item id="cofre" src="./COFRE/treasure_chest_4k.gltf"></a-asset-item>
+            <a-asset-item id="reloj" src="./RELOJ/alarm_clock_01_4k.gltf"></a-asset-item>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
         <!-- GEOMETRÍA CAJAS -->
-
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>     
         
         <a-entity mindar-image-target="targetIndex: 0">
 
-            <!--<a-box position="0 0 0" occlusion="" material="" scale="1 2 1"></a-box>-->
-            <a-entity shadow="" gltf-model="#box" position="-2 -4 -6" material="" scale="5 5 5"></a-entity>
-            <a-entity shadow="" gltf-model="#tv" position="2 -4 -6" material="" scale="5 5 5"></a-entity>
-        
+            <a-box position="1.02608 -1.59591 -0.12212" occlusion="" material="" scale="1 2 1" geometry="" rotation="16.32 0 3.74"></a-box>
+            <a-entity shadow="" gltf-model="#reloj" position="-4 -4 -6" material="" scale="5 5 5"></a-entity>
+            <a-entity shadow="" gltf-model="#cofre" position="2 -4 -6" material="" scale="5 5 5"></a-entity>
+        </a-entity>
             <!-- LUCES --> 
 
-            <a-entity id="luz_blanca1" position="4 4 -4" rotation="-37 -20 0"
-                light="type: spot; castShadow: true; intensity: 0.7; color: #f3f3f2">
+            <a-entity id="luz_blanca1" position="4.90062 2.2344 0.059" rotation="-37 -20 0" light="type: spot; castShadow: true; intensity: 0.9; color: #f3f3f2">
             </a-entity>
 
-            <a-entity id="luz_blanca" position="4 4 -4" light="intensity: 0.9; color: white">
+            <a-entity id="luz_blanca" position="2.59076 2.5444 1.2642" light="intensity: 0.9; color: white">
             </a-entity>
 
-            <a-entity id="luz_ambiente" light="type: ambient; intensity: 0.36">
+            <a-entity id="luz_ambiente" light="type: ambient; intensity: 0.9">
             </a-entity>
 
-            <!-- PLANOS SOMBRAS 
+            <!-- PLANOS SOMBRAS -->
 
-            <a-plane id="suelo" shadow="cast: false" shadowonly="" material="color: white; opacity: 0.5" scale="6 6 6"
-                position="-0.02476 0 -2.56392" rotation="-90 10 0" geometry="">
+            <a-plane id="suelo" shadow="cast: false" shadowonly="" material="color: white; opacity: 0.5" scale="1000 1000 1000" position="-2.09566 -3.9854 -13.863" rotation="-90 10 0" geometry="">
             </a-plane>
 
-            <a-plane id="pared" shadow="cast: false" shadowonly="" material="color: white; opacity: 0.5" scale="3 3 3"
-                position="-1.74 1.5 -7.27179" rotation="0 10 0" geometry="">
+            <a-plane id="pared" shadow="cast: false" shadowonly="" material="color: white; opacity: 0.5" scale="3 3 3" position="0.06067 1.5 -8" rotation="0 10 0" geometry="">
             </a-plane>
 
-        -->
-        </a-entity>
+        
         
     </a-scene>
 </body>
